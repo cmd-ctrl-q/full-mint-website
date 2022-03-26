@@ -1,30 +1,53 @@
 # Full Mint Website
 
-(Building a Full Web3 Mint Website for Beginners | React, Hardhat, Ethers, and Chakra
-)[https://www.youtube.com/watch?v=ynFNLBP2TPs]
+[Building a Full Web3 Mint Website for Beginners | React, Hardhat, Ethers, and Chakra
+](https://www.youtube.com/watch?v=ynFNLBP2TPs)
 
-Steps:
+## Steps for creating project
+
 _Create frontend app_
-`npx create-react-app full-mint-website`
+
+```sh
+npx create-react-app full-mint-website
+```
 
 _Install hardhat as a dependency_
-`npm i -D hardhat`
+
+```sh
+npm i -D hardhat
+```
 
 _Create a hardhat project_
-`npx hardhat`
 
-- Create a basic sample project
-- /path/to/project
-- y
-- y
+```sh
+npx hardhat
+```
+
+1. Create a basic sample project
+2. /path/to/project
+3. yes
+4. yes
 
 _Install openzeppelin contracts_
+useful for using stardard contract functionality like minting
 
-> useful for using stardard contract functionality like minting
-> `npm i @openzeppelin/contracts`
+```sh
+npm i @openzeppelin/contracts
+```
 
 _Install chakra for using pre-built styling components_
-`npm i @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6`
+
+```sh
+npm i @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
+```
+
+_Create .env file and add infura RPC URL, etherscan key, and private wallet key_
+
+_Install dotenv_
+
+```sh
+npm i -D dotenv
+```
 
 # Basic Sample Hardhat Project
 
@@ -32,7 +55,7 @@ This project demonstrates a basic Hardhat use case. It comes with a sample contr
 
 Try running some of the following tasks:
 
-```shell
+```sh
 npx hardhat accounts
 npx hardhat compile
 npx hardhat clean
