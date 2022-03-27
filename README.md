@@ -5,19 +5,19 @@
 
 ## Steps for creating project
 
-_Create frontend app_
+Create frontend app
 
 ```sh
 npx create-react-app full-mint-website
 ```
 
-_Install hardhat as a dependency_
+Install hardhat as a dependency
 
 ```sh
 npm i -D hardhat
 ```
 
-_Create a hardhat project_
+Create a hardhat project
 
 ```sh
 npx hardhat
@@ -28,28 +28,56 @@ npx hardhat
 3. yes
 4. yes
 
-_Install openzeppelin contracts_
+Install openzeppelin contracts
 useful for using stardard contract functionality like minting
 
 ```sh
 npm i @openzeppelin/contracts
 ```
 
-_Install chakra for using pre-built styling components_
+Install chakra for using pre-built styling components
 
 ```sh
 npm i @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
 ```
 
-_Create .env file and add infura RPC URL, etherscan key, and private wallet key_
+Create .env file and add infura RPC URL, etherscan key, and private wallet key
 
-_Install dotenv_
+Install dotenv
 
 ```sh
 npm i -D dotenv
 ```
 
-# Basic Sample Hardhat Project
+Add rinkeby network to the `hardhat.config.js` file.
+
+Deploy contract
+
+```sh
+npx hardhat clean
+npx hardhat compile
+npx hardhat run scripts/deployRoboPunksNFT.js --network rinkeby
+```
+
+Install nomiclabs for verifying the contract
+Contract and byte code can be seen on rinkeby.etherscan.io/address/0x...
+
+```sh
+npm i -D @nomiclabs/hardhat-etherscan
+```
+
+Verify contract
+
+```sh
+npx hardhat verify --network rinkeby {address}
+```
+
+After verifying it, you can refresh the url rinkeby.etherscan.io/address/0x...
+
+Finally, you can also call your functions in rinkeby.etherscan.io
+Contract > Read Contract
+
+## Basic Hardhat commands
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
 
