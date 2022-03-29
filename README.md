@@ -3,6 +3,15 @@
 [Building a Full Web3 Mint Website for Beginners | React, Hardhat, Ethers, and Chakra
 ](https://www.youtube.com/watch?v=ynFNLBP2TPs)
 
+Technologies used
+
+- ReactJS
+- Hardhat
+- Infura
+- Etherscan
+- NodeJS
+- Chakra
+
 ## Steps for creating project
 
 Create frontend app
