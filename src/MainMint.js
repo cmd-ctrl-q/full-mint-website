@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { ethers, BigNumber } from 'ethers';
 import { Box, Button, Flex, Input, Text } from '@chakra-ui/react';
-import roboPunksNFT from './RoboPunksNFT.json';
+import roboArtifact from '../artifacts/contracts/RoboPunksNFT.sol/RoboPunksNFT.json';
+
+console.log('abi', abi);
 
 // contract address (from etherscan.io)
 const roboPunksNFTAddress = '0xf93A36af4fd27399b39Db0218b5e55CD8d63328D';
 
-const MainMint = ({ accounts, setAccounts }) => {
+const MainMint = async ({ accounts, setAccounts }) => {
   // quantity to mint
   const [mintAmount, setMintAmount] = useState(1);
   const isConnected = Boolean(accounts[0]);
@@ -17,18 +19,18 @@ const MainMint = ({ accounts, setAccounts }) => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       // sign the trasaction
       const signer = provider.getSigner();
-      const contract = new ethers.Contract({
+      const contract = await new ethers.Contract(
         roboPunksNFTAddress,
-        roboPunksNFT,
-        signer,
-      });
+        roboArtifact.abi,
+        signer
+      );
       try {
         const response = await contract.mint(BigNumber.from(mintAmount), {
           value: ethers.utils.parseEther((0.01 * mintAmount).toString()),
         });
         console.log('*** response:', response);
       } catch (err) {
-        console.error('*** error:', err);
+        console.log('*** error:', err);
       }
     }
   }
